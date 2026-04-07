@@ -12,7 +12,7 @@ Focused on delivering accurate, culturally relevant content while ensuring align
 - International project coordination  
 
 ## Portfolio
-[🌐 View my portfolio website](https://github.com/Olivera-Tabajica)
+[🌐 View my portfolio website](https://olivera-tabajica.github.io/Translation-Portfolio-)
 
 ## Technical Writing
 [📚 Explore my documentation work on GitHub Wiki](https://github.com/Olivera-Tabajica/Technical-writing-portfolio)  
