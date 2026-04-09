@@ -2,174 +2,496 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Olivera Tabajica | Localization Specialist</title>
- <style>
-  body {
-    font-family: Calibri, Arial, sans-serif;
-    max-width: 900px;
-    margin: auto;
-    line-height: 1.7;
-    padding: 40px 20px;
-    color: #222;
-    background-color: #fafafa;
-  }
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  h1 {
-    font-size: 36px;
-    margin-bottom: 5px;
-  }
+    :root {
+      --c-bg: #fafaf8;
+      --c-surface: #ffffff;
+      --c-border: rgba(0,0,0,0.10);
+      --c-border-strong: rgba(0,0,0,0.18);
+      --c-text: #1a1a18;
+      --c-text-muted: #5f5e5a;
+      --c-text-faint: #888780;
+      --c-accent: #534AB7;
+      --c-accent-light: #EEEDFE;
+      --c-accent-mid: #7F77DD;
+      --c-teal: #1D9E75;
+      --c-teal-light: #E1F5EE;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+    }
 
-  h2 {
-    margin-top: 50px;
-    border-bottom: 2px solid #e5e5e5;
-    padding-bottom: 5px;
-    color: #1a1a1a;
-  }
+    body {
+      font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--c-text);
+      background: var(--c-bg);
+      min-height: 100vh;
+    }
 
-  h3 {
-    margin-top: 30px;
-    color: #333;
-  }
+    /* ── HEADER ── */
+    header {
+      background: var(--c-surface);
+      border-bottom: 0.5px solid var(--c-border);
+      padding: 56px 0 44px;
+    }
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+    }
+    .avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: var(--c-accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--c-accent);
+      flex-shrink: 0;
+      border: 0.5px solid rgba(83,74,183,0.2);
+    }
+    .header-text h1 {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.3px;
+      color: var(--c-text);
+      margin-bottom: 4px;
+    }
+    .header-text .subtitle {
+      font-size: 15px;
+      color: var(--c-text-muted);
+      margin-bottom: 16px;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      font-size: 12px;
+      padding: 3px 11px;
+      border-radius: 99px;
+      border: 0.5px solid var(--c-border-strong);
+      color: var(--c-text-muted);
+      background: var(--c-bg);
+    }
+    .tag.accent {
+      background: var(--c-accent-light);
+      border-color: rgba(83,74,183,0.25);
+      color: var(--c-accent);
+    }
 
-  p {
-    margin: 10px 0;
-  }
+    /* ── LAYOUT ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
 
-  ul {
-    margin: 10px 0 20px 20px;
-  }
+    /* ── SECTION ── */
+    section { margin-bottom: 56px; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c-text-faint);
+      margin-bottom: 20px;
+    }
 
-  li {
-    margin-bottom: 5px;
-  }
+    /* ── ABOUT ── */
+    .about-text {
+      font-size: 15.5px;
+      color: var(--c-text-muted);
+      line-height: 1.75;
+      max-width: 620px;
+    }
 
-  strong {
-    color: #000;
-  }
+    /* ── COMPETENCIES ── */
+    .competencies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+    }
+    .competency-card {
+      background: var(--c-surface);
+      border: 0.5px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      padding: 16px 18px;
+    }
+    .competency-icon {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .competency-card h3 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--c-text);
+      margin-bottom: 4px;
+    }
+    .competency-card p {
+      font-size: 12px;
+      color: var(--c-text-muted);
+      line-height: 1.5;
+    }
 
-  em {
-    color: #555;
-  }
-</style>
+    /* ── SAMPLE CARD ── */
+    .sample-card {
+      background: var(--c-surface);
+      border: 0.5px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 20px;
+    }
+    .sample-card + .sample-card { margin-top: 0; }
+
+    .sample-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .sample-header h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--c-text);
+      margin-bottom: 5px;
+    }
+    .sample-header p {
+      font-size: 13px;
+      color: var(--c-text-muted);
+      max-width: 480px;
+    }
+    .lang-badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 99px;
+      background: var(--c-teal-light);
+      color: var(--c-teal);
+      white-space: nowrap;
+      align-self: flex-start;
+      border: 0.5px solid rgba(29,158,117,0.2);
+    }
+
+    .responsibilities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 22px;
+    }
+    .responsibility-pill {
+      font-size: 12px;
+      padding: 3px 11px;
+      border-radius: 99px;
+      background: var(--c-bg);
+      border: 0.5px solid var(--c-border-strong);
+      color: var(--c-text-muted);
+    }
+
+    /* ── TRANSLATION BLOCK ── */
+    .translation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 0.5px solid var(--c-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .translation-col {
+      padding: 18px 20px;
+    }
+    .translation-col:first-child {
+      border-right: 0.5px solid var(--c-border);
+      background: var(--c-bg);
+    }
+    .translation-col:last-child {
+      background: var(--c-surface);
+    }
+    .col-header {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--c-text-faint);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .col-lang-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      display: inline-block;
+    }
+    .col-header.sr { color: #534AB7; }
+    .col-header.cn { color: #1D9E75; }
+    .translation-col p {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: var(--c-text-muted);
+    }
+    .article-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--c-text);
+      margin-bottom: 10px;
+    }
+    .translation-label {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--c-accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .divider {
+      height: 0.5px;
+      background: var(--c-border);
+      margin: 16px 0;
+    }
+
+    /* ── CONTACT ── */
+    .contact-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 18px;
+      background: var(--c-surface);
+      border: 0.5px solid var(--c-border);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      color: var(--c-text);
+      font-size: 13.5px;
+      transition: border-color 0.15s;
+    }
+    .contact-link:hover { border-color: var(--c-accent-mid); color: var(--c-accent); }
+    .contact-icon {
+      width: 15px;
+      height: 15px;
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 0.5px solid var(--c-border);
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--c-text-faint);
+    }
+
+    @media (max-width: 600px) {
+      .header-inner { flex-direction: column; gap: 18px; }
+      .translation-grid { grid-template-columns: 1fr; }
+      .translation-col:first-child { border-right: none; border-bottom: 0.5px solid var(--c-border); }
+      main { padding: 32px 20px 60px; }
+      .sample-card { padding: 20px; }
+    }
+  </style>
 </head>
 <body>
 
-<h1>Olivera Tabajica</h1>
-<p>Chinese–English–Serbian Localization Specialist</p>
+<header>
+  <div class="header-inner">
+    <div class="avatar">OT</div>
+    <div class="header-text">
+      <h1>Olivera Tabajica</h1>
+      <p class="subtitle">Chinese · English · Serbian — Localization Specialist</p>
+      <div class="tag-row">
+        <span class="tag accent">Legal translation</span>
+        <span class="tag accent">Financial documentation</span>
+        <span class="tag">CN · EN · SR</span>
+        <span class="tag">Cross-border projects</span>
+        <span class="tag">Terminology management</span>
+      </div>
+    </div>
+  </div>
+</header>
 
-<h2>About</h2>
-<p>
-Localization specialist with a background in legal and financial translation, experienced in supporting cross-border projects between Chinese companies and European stakeholders.  
-Skilled in handling complex documentation, ensuring terminological consistency, and adapting content for international business and regulatory environments.
-</p>
+<main>
 
-<h2>Focus</h2>
-<ul>
-  <li>Legal & financial translation (Chinese–English–Serbian)</li>
-  <li>Localization & multilingual content</li>
-  <li>Legal & financial documentation</li>
-  <li>Cross-market communication</li>
-</ul>
+  <!-- ABOUT -->
+  <section>
+    <p class="section-label">About</p>
+    <p class="about-text">
+      Localization specialist with a background in legal and financial translation, experienced in supporting cross-border projects between Chinese companies and European stakeholders. Skilled in handling complex documentation, ensuring terminological consistency, and adapting content for international business and regulatory environments.
+    </p>
+  </section>
 
-<h2>Portfolio</h2>
+  <!-- COMPETENCIES -->
+  <section>
+    <p class="section-label">Areas of expertise</p>
+    <div class="competencies">
+      <div class="competency-card">
+        <div class="competency-icon">⚖️</div>
+        <h3>Legal translation</h3>
+        <p>Contracts, property law, regulatory documentation</p>
+      </div>
+      <div class="competency-card">
+        <div class="competency-icon">💱</div>
+        <h3>Financial documentation</h3>
+        <p>Payment structures, invoicing, cross-border terms</p>
+      </div>
+      <div class="competency-card">
+        <div class="competency-icon">🔗</div>
+        <h3>Localization</h3>
+        <p>Multilingual content, market adaptation</p>
+      </div>
+      <div class="competency-card">
+        <div class="competency-icon">📖</div>
+        <h3>Terminology management</h3>
+        <p>Glossaries, consistency across document sets</p>
+      </div>
+    </div>
+  </section>
 
-<h3>Property Registration – Legal Translation (Serbian → Chinese)</h3>
+  <!-- PORTFOLIO -->
+  <section>
+    <p class="section-label">Translation samples</p>
 
-<p>
-Translated legal provisions related to property registration, including ownership rights, administrative procedures, and regulatory dependencies.
-Focused on terminological consistency and alignment with formal legal Chinese used in real estate and compliance contexts.
-</p>
+    <!-- SAMPLE 1 -->
+    <div class="sample-card">
+      <div class="sample-header">
+        <div>
+          <h3>Property registration — legal translation</h3>
+          <p>Translation of legal provisions covering property registration, ownership rights, administrative procedures, and regulatory dependencies. Focused on terminological consistency and alignment with formal legal Chinese used in real estate and compliance contexts.</p>
+        </div>
+        <span class="lang-badge">SR → CN</span>
+      </div>
 
-<p><strong>Key Responsibilities:</strong></p>
-<ul>
-  <li>Translation of legal contract clauses related to property registration</li>
-  <li>Ensuring consistency in legal terminology across documents</li>
-  <li>Adapting content to formal legal Chinese standards</li>
-  <li>Maintaining clarity in regulatory and administrative processes</li>
-</ul>
+      <div class="responsibilities">
+        <span class="responsibility-pill">Contract clause translation</span>
+        <span class="responsibility-pill">Legal terminology consistency</span>
+        <span class="responsibility-pill">Formal legal Chinese standards</span>
+        <span class="responsibility-pill">Regulatory clarity</span>
+      </div>
 
-<p><strong>Sample (Full Section):</strong></p>
+      <div class="translation-grid">
+        <div class="translation-col">
+          <div class="col-header sr"><span class="col-lang-dot"></span>Original · Serbian</div>
+          <p class="article-title">Član 12. Upis objekta</p>
+          <p>Prodavac se obavezuje da pribavi upotrebnu dozvolu za objekat, i da izvrši upis objekta u katastar nepokretnosti, da izvrši pravnu podelu objekta na posebne delove i da ih upiše u katastar nepokretnosti. Kupac potvrđuje da je upoznat da ispunjenje navedenih obaveza Prodavca zavisi od kapaciteta i efikasnosti nadležnih organa i saglasan je da neće Prodavca smatrati odgovornim za bilo koje kašnjenje u završetku navedenih radnji.</p>
+          <div class="divider"></div>
+          <p>Prodavac nije odgovoran za upis prava svojine Kupca nad Nepokretnošću u katastaru nepokretnosti.</p>
+          <div class="divider"></div>
+          <p>Ako je neophodno, nakon izdavanja upotrebne dozvole i upisa objekta i posebnih delova u katastar nepokretnosti, Ugovorne strane će zaključiti aneks ovog Ugovora sa ciljem preciznog definisanja identifikacionih obeležja Nepokretnosti, a kako bi se olakšao njen upis u katastar nepokretnosti.</p>
+          <div class="divider"></div>
+          <p>Kupac snosi sve troškove upisa njegovog prava svojine nad Nepokretnošću u katastar nepokretnosti.</p>
+        </div>
+        <div class="translation-col">
+          <div class="col-header cn"><span class="col-lang-dot"></span>Translation · Chinese</div>
+          <p class="article-title">第十二条 不动产登记</p>
+          <p>卖方有义务取得建筑物的使用许可证，并将该建筑物登记于不动产登记机构，同时依法将建筑物划分为专有部分，并分别予以登记。买方确认，其已知悉卖方上述义务的履行取决于主管机关的效率及处理能力，并同意卖方对完成上述手续的任何延误不承担责任。</p>
+          <div class="divider"></div>
+          <p>卖方不对买方在不动产登记机构办理该不动产所有权登记承担责任。</p>
+          <div class="divider"></div>
+          <p>如有必要，在取得使用许可证并完成建筑物及其专有部分在不动产登记机构的登记后，合同双方应签署本合同的补充协议，以明确不动产的具体识别信息，从而便于其登记。</p>
+          <div class="divider"></div>
+          <p>买方应承担其不动产所有权在不动产登记机构登记的全部费用。</p>
+        </div>
+      </div>
+    </div>
 
-<p><em>Original (SR):</em></p>
-<p>
-<strong>12. Upis objekta</strong><br><br>
+    <!-- SAMPLE 2 -->
+    <div class="sample-card">
+      <div class="sample-header">
+        <div>
+          <h3>Payment structure — financial and legal translation</h3>
+          <p>Translation of a full contract section covering deposit agreements, installment schedules, invoicing, and late payment terms. Focused on financial precision, legal clarity, and consistency across structured payment terms in cross-border contexts.</p>
+        </div>
+        <span class="lang-badge">SR → CN</span>
+      </div>
 
-Prodavac se obavezuje da pribavi upotrebnu dozvolu za objekat, i da izvrši upis objekta u katastar nepokretnosti, da izvrši pravnu podelu objekta na posebne delove i da ih upiše u katastar nepokretnosti. Kupac potvrđuje da je upoznat da ispunjenje navedenih obaveza Prodavca zavisi od kapaciteta i efikasnosti nadležnih organa i saglasan je da neće Prodavca smatrati odgovornim za bilo koje kašnjenje u završetku navedenih radnji.<br><br>
+      <div class="responsibilities">
+        <span class="responsibility-pill">Financial contract clauses</span>
+        <span class="responsibility-pill">Installment logic</span>
+        <span class="responsibility-pill">Payment terminology</span>
+        <span class="responsibility-pill">Cross-border compliance</span>
+      </div>
 
-Prodavac nije odgovoran za upis prava svojine Kupca nad Nepokretnošću u katastaru nepokretnosti.<br><br>
+      <div class="translation-grid">
+        <div class="translation-col">
+          <div class="col-header sr"><span class="col-lang-dot"></span>Original · Serbian</div>
+          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);margin-bottom:10px;">Kupoprodajna cena se plaća isključivo u evrima i na bankarski račun Prodavca naveden u profakturi. Kupac snosi bilo koje i sve naknade i troškove na ime transfera novca na bankarski račun Prodavca, uključujući, a bez ograničenja, trošak bankarske provizije.</p>
+          <div class="divider"></div>
+          <p class="translation-label">Extended excerpt</p>
+          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">Ugovorne strane saglasno konstatuju da je Kupac po Ugovoru o garantnom depozitu zaključenom sa Prodavcem dana […], isplatio Prodavcu ukupan iznos […] evra sa PDV-om, u dinarskoj protivvrednosti po srednjem kursu NBS-a na dan plaćanja. Navedeni iznos smatra se delom prve rate kupoprodajne cene.</p>
+          <div class="divider"></div>
+          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">Preostali iznos kupoprodajne cene plaća se u ratama: prva rata (30%) nakon overe ugovora, najkasnije u roku od 15 dana od dostavljanja profakture; druga rata (70%) u roku od 15 dana od ulaska u posed i dostavljanja profakture.</p>
+          <div class="divider"></div>
+          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">Kupac je dužan da izvrši plaćanje u roku od 15 dana od dana prijema profakture, u suprotnom pada u docnju.</p>
+        </div>
+        <div class="translation-col">
+          <div class="col-header cn"><span class="col-lang-dot"></span>Translation · Chinese</div>
+          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);margin-bottom:10px;">买卖价款应仅以欧元支付至卖方在形式发票中指定的银行账户。买方应承担全部与转账相关的费用，包括但不限于银行手续费。</p>
+          <div class="divider"></div>
+          <p class="translation-label">Extended excerpt</p>
+          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">合同双方一致确认，买方已根据其与卖方于【】年【】月【】日签订的《定金协议》，向卖方支付定金共计【】欧元（含增值税），并按付款当日塞尔维亚国家银行中间汇率折算为第纳尔支付。上述定金应计入买卖价款首期付款的一部分。</p>
+          <div class="divider"></div>
+          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">剩余买卖价款按如下方式分期支付：第一期为总价款的30%，于合同公证后支付，且最迟不得超过卖方出具形式发票之日起15日内支付；第二期为总价款的70%，应于不动产交付并出具形式发票之日起15日内支付。</p>
+          <div class="divider"></div>
+          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">买方应于收到形式发票之日起15日内支付相应价款，逾期未付的，视为违约。</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-Ako je neophodno, nakon izdavanja upotrebne dozvole i upisa objekta i posebnih delova u katastar nepokretnosti, Ugovorne strane će zaključiti aneks ovog Ugovora sa ciljem preciznog definisanja identifikacionih obeležja Nepokretnosti, a kako bi se olakšao njen upis u katastar nepokretnosti.<br><br>
+  <!-- TECHNICAL WRITING LINK -->
+  <section>
+    <p class="section-label">Technical writing portfolio</p>
+    <div style="background:var(--c-surface);border:0.5px solid var(--c-border);border-radius:var(--radius-lg);padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div>
+        <p style="font-size:15px;font-weight:500;color:var(--c-text);margin-bottom:4px;">SOPs, user guides, workflow documentation & glossaries</p>
+        <p style="font-size:13px;color:var(--c-text-muted);">Manufacturing, railway infrastructure, e-government, and multilingual terminology (CN–SR–EN)</p>
+      </div>
+      <a href="https://github.com/Olivera-Tabajica/Technical-writing-portfolio/wiki" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:var(--c-accent-light);border:0.5px solid rgba(83,74,183,0.25);border-radius:var(--radius-md);text-decoration:none;font-size:13px;font-weight:500;color:var(--c-accent);white-space:nowrap;">
+        View on GitHub
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 10.5L10.5 2.5M10.5 2.5H5M10.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
 
-Kupac snosi sve troškove upisa njegovog prava svojine nad Nepokretnošću u katastar nepokretnosti.
-</p>
+  <!-- CONTACT -->
+  <section>
+    <p class="section-label">Contact</p>
+    <div class="contact-row">
+      <a href="mailto:oliveratabajica@gmail.com" class="contact-link">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 8l9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        oliveratabajica@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/olivera-tabajica" target="_blank" class="contact-link">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11 17v-4a2 2 0 014 0v4M11 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        linkedin.com/in/olivera-tabajica
+      </a>
+    </div>
+  </section>
 
-<p><em>Translation (CN):</em></p>
-<p>
-<strong>第十二条 不动产登记</strong><br><br>
+</main>
 
-卖方有义务取得建筑物的使用许可证，并将该建筑物登记于不动产登记机构，同时依法将建筑物划分为专有部分，并分别予以登记。买方确认，其已知悉卖方上述义务的履行取决于主管机关的效率及处理能力，并同意卖方对完成上述手续的任何延误不承担责任。<br><br>
-
-卖方不对买方在不动产登记机构办理该不动产所有权登记承担责任。<br><br>
-
-如有必要，在取得使用许可证并完成建筑物及其专有部分在不动产登记机构的登记后，合同双方应签署本合同的补充协议，以明确不动产的具体识别信息，从而便于其登记。<br><br>
-
-买方应承担其不动产所有权在不动产登记机构登记的全部费用。
-</p>
-
-<p><strong>Focus:</strong> Legal consistency, regulatory clarity, and cross-border documentation.</p>
-
- <h3>Payment Structure – Financial & Legal Translation (Serbian → Chinese)</h3>
-
-<p>
-Translated a full contract section covering payment structure, including deposit agreements, installment schedules, invoicing, and late payment interest.  
-Focused on financial precision, legal clarity, and consistency across structured payment terms in cross-border business and regulatory contexts.
-</p>
-
-<p><strong>Key Responsibilities:</strong></p>
-<ul>
-  <li>Translation of financial and legal contract clauses</li>
-  <li>Structuring installment logic and payment conditions</li>
-  <li>Ensuring consistency in financial terminology (deposits, invoices, penalties)</li>
-  <li>Adapting content to formal legal and financial Chinese standards</li>
-</ul>
-
-<p><strong>Sample (Excerpt):</strong></p>
-
-<p><em>Original (SR):</em></p>
-<p>
-Kupoprodajna cena se plaća isključivo u evrima i na bankarski račun Prodavca naveden u profakturi. Kupac snosi bilo koje i sve naknade i troškove na ime transfera novca na bankarski račun Prodavca, uključujući, a bez ograničenja, trošak bankarske provizije.
-</p>
-
-<p><em>Translation (CN):</em></p>
-<p>
-买卖价款应仅以欧元支付至卖方在形式发票中指定的银行账户。买方应承担全部与转账相关的费用，包括但不限于银行手续费。
-</p>
-
-<p><strong>Extended Sample (Contract Section):</strong></p>
-
-<p><em>Original (SR):</em></p>
-<p>
-Ugovorne strane saglasno konstatuju da je Kupac po Ugovoru o garantnom depozitu zaključenom sa Prodavcem dana […], isplatio Prodavcu ukupan iznos […] evra sa PDV-om, u dinarskoj protivvrednosti po srednjem kursu NBS-a na dan plaćanja. Navedeni iznos smatra se delom prve rate kupoprodajne cene.<br><br>
-
-Preostali iznos kupoprodajne cene plaća se u ratama: prva rata (30%) nakon overe ugovora, najkasnije u roku od 15 dana od dostavljanja profakture; druga rata (70%) u roku od 15 dana od ulaska u posed i dostavljanja profakture.<br><br>
-
-Kupac je dužan da izvrši plaćanje u roku od 15 dana od dana prijema profakture, u suprotnom pada u docnju.
-</p>
-
-<p><em>Translation (CN):</em></p>
-<p>
-合同双方一致确认，买方已根据其与卖方于【】年【】月【】日签订的《定金协议》，向卖方支付定金共计【】欧元（含增值税），并按付款当日塞尔维亚国家银行中间汇率折算为第纳尔支付。上述定金应计入买卖价款首期付款的一部分。<br><br>
-
-剩余买卖价款按如下方式分期支付：第一期为总价款的30%，于合同公证后支付，且最迟不得超过卖方出具形式发票之日起15日内支付；第二期为总价款的70%，应于不动产交付并出具形式发票之日起15日内支付。<br><br>
-
-买方应于收到形式发票之日起15日内支付相应价款，逾期未付的，视为违约。
-</p>
-
-<p><strong>Focus:</strong> Financial accuracy, contractual clarity, and structured payment logic.</p>
-
-<h2>Contact</h2>
-<p>Email: oliveratabajica@gmail.com</p>
-<p>LinkedIn: linkedin.com/in/olivera-tabajica</p>
+<footer>
+  Olivera Tabajica · Localization &amp; Technical Writing
+</footer>
 
 </body>
 </html>
