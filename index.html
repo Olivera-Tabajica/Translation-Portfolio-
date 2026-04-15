@@ -8,78 +8,79 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --c-bg: #fafaf8;
+      --c-bg: #f7f7f5;
       --c-surface: #ffffff;
-      --c-border: rgba(0,0,0,0.10);
-      --c-border-strong: rgba(0,0,0,0.18);
+      --c-border: rgba(0,0,0,0.09);
+      --c-border-strong: rgba(0,0,0,0.16);
       --c-text: #1a1a18;
       --c-text-muted: #5f5e5a;
-      --c-text-faint: #888780;
+      --c-text-faint: #9a9890;
       --c-accent: #534AB7;
       --c-accent-light: #EEEDFE;
       --c-accent-mid: #7F77DD;
-      --c-teal: #1D9E75;
+      --c-teal: #0F6E56;
       --c-teal-light: #E1F5EE;
-      --radius-md: 8px;
+      --c-teal-mid: #1D9E75;
+      --radius-sm: 6px;
+      --radius-md: 9px;
       --radius-lg: 14px;
+      --radius-xl: 18px;
     }
 
     body {
-      font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
       font-size: 15px;
       line-height: 1.7;
       color: var(--c-text);
       background: var(--c-bg);
-      min-height: 100vh;
     }
 
     /* ── HEADER ── */
     header {
       background: var(--c-surface);
       border-bottom: 0.5px solid var(--c-border);
-      padding: 56px 0 44px;
+      padding: 52px 0 40px;
+    }
+    .wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 36px;
     }
     .header-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 32px;
       display: flex;
       align-items: flex-start;
-      gap: 32px;
+      gap: 28px;
     }
     .avatar {
-      width: 68px;
-      height: 68px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       background: var(--c-accent-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 500;
       color: var(--c-accent);
       flex-shrink: 0;
-      border: 0.5px solid rgba(83,74,183,0.2);
+      border: 0.5px solid rgba(83,74,183,0.18);
+      letter-spacing: 0.5px;
     }
     .header-text h1 {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 500;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.4px;
       color: var(--c-text);
       margin-bottom: 4px;
     }
-    .header-text .subtitle {
-      font-size: 15px;
+    .header-subtitle {
+      font-size: 14px;
       color: var(--c-text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
     .tag {
-      font-size: 12px;
+      font-size: 11.5px;
       padding: 3px 11px;
       border-radius: 99px;
       border: 0.5px solid var(--c-border-strong);
@@ -88,23 +89,22 @@
     }
     .tag.accent {
       background: var(--c-accent-light);
-      border-color: rgba(83,74,183,0.25);
+      border-color: rgba(83,74,183,0.22);
       color: var(--c-accent);
     }
-
-    /* ── LAYOUT ── */
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 48px 32px 80px;
+    .tag.teal {
+      background: var(--c-teal-light);
+      border-color: rgba(29,158,117,0.22);
+      color: var(--c-teal);
     }
 
-    /* ── SECTION ── */
-    section { margin-bottom: 56px; }
+    /* ── MAIN / SECTIONS ── */
+    main { max-width: 780px; margin: 0 auto; padding: 52px 36px 88px; }
+    section { margin-bottom: 52px; }
     .section-label {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--c-text-faint);
       margin-bottom: 20px;
@@ -114,87 +114,82 @@
     .about-text {
       font-size: 15.5px;
       color: var(--c-text-muted);
-      line-height: 1.75;
-      max-width: 620px;
+      line-height: 1.8;
+      max-width: 640px;
     }
 
-    /* ── COMPETENCIES ── */
-    .competencies {
+    /* ── CARD GRID ── */
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(172px, 1fr));
+      gap: 10px;
     }
-    .competency-card {
+    .card {
       background: var(--c-surface);
       border: 0.5px solid var(--c-border);
       border-radius: var(--radius-lg);
-      padding: 16px 18px;
+      padding: 18px 20px;
     }
-    .competency-icon {
-      font-size: 18px;
-      margin-bottom: 8px;
+    .card-icon { font-size: 17px; margin-bottom: 10px; line-height: 1; }
+    .card h3 { font-size: 13px; font-weight: 500; color: var(--c-text); margin-bottom: 5px; }
+    .card p  { font-size: 12.5px; color: var(--c-text-muted); line-height: 1.55; }
+
+    /* ── STAT ROW ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
     }
-    .competency-card h3 {
-      font-size: 13px;
+    .stat-card {
+      background: var(--c-surface);
+      border: 0.5px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+    }
+    .stat-number {
+      font-size: 24px;
       font-weight: 500;
       color: var(--c-text);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
       margin-bottom: 4px;
     }
-    .competency-card p {
-      font-size: 12px;
-      color: var(--c-text-muted);
-      line-height: 1.5;
-    }
+    .stat-label { font-size: 12px; color: var(--c-text-muted); line-height: 1.4; }
 
-    /* ── SAMPLE CARD ── */
+    /* ── TRANSLATION SAMPLE CARD ── */
     .sample-card {
       background: var(--c-surface);
       border: 0.5px solid var(--c-border);
-      border-radius: var(--radius-lg);
-      padding: 28px 32px;
-      margin-bottom: 20px;
+      border-radius: var(--radius-xl);
+      padding: 28px 30px;
+      margin-bottom: 16px;
     }
-    .sample-card + .sample-card { margin-top: 0; }
-
     .sample-header {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       flex-wrap: wrap;
     }
-    .sample-header h3 {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--c-text);
-      margin-bottom: 5px;
-    }
-    .sample-header p {
-      font-size: 13px;
-      color: var(--c-text-muted);
-      max-width: 480px;
-    }
+    .sample-header h3 { font-size: 15.5px; font-weight: 500; color: var(--c-text); margin-bottom: 5px; }
+    .sample-header p  { font-size: 13px; color: var(--c-text-muted); line-height: 1.6; max-width: 480px; }
     .lang-badge {
       font-size: 11px;
       font-weight: 500;
-      padding: 4px 12px;
+      padding: 4px 13px;
       border-radius: 99px;
       background: var(--c-teal-light);
       color: var(--c-teal);
       white-space: nowrap;
+      border: 0.5px solid rgba(15,110,86,0.2);
       align-self: flex-start;
-      border: 0.5px solid rgba(29,158,117,0.2);
+      flex-shrink: 0;
     }
-
-    .responsibilities {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 22px;
-    }
-    .responsibility-pill {
-      font-size: 12px;
+    .pill-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+    .pill {
+      font-size: 11.5px;
       padding: 3px 11px;
       border-radius: 99px;
       background: var(--c-bg);
@@ -202,7 +197,7 @@
       color: var(--c-text-muted);
     }
 
-    /* ── TRANSLATION BLOCK ── */
+    /* ── PARALLEL TRANSLATION ── */
     .translation-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -211,66 +206,81 @@
       border-radius: var(--radius-md);
       overflow: hidden;
     }
-    .translation-col {
-      padding: 18px 20px;
-    }
-    .translation-col:first-child {
-      border-right: 0.5px solid var(--c-border);
-      background: var(--c-bg);
-    }
-    .translation-col:last-child {
-      background: var(--c-surface);
-    }
-    .col-header {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--c-text-faint);
-      margin-bottom: 12px;
+    .t-col { padding: 18px 22px; }
+    .t-col.left  { border-right: 0.5px solid var(--c-border); background: var(--c-bg); }
+    .t-col.right { background: var(--c-surface); }
+    .t-col-header {
       display: flex;
       align-items: center;
       gap: 7px;
-    }
-    .col-lang-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-      display: inline-block;
-    }
-    .col-header.sr { color: #534AB7; }
-    .col-header.cn { color: #1D9E75; }
-    .translation-col p {
-      font-size: 13.5px;
-      line-height: 1.75;
-      color: var(--c-text-muted);
-    }
-    .article-title {
-      font-size: 14px;
+      font-size: 10.5px;
       font-weight: 500;
-      color: var(--c-text);
-      margin-bottom: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
-    .translation-label {
-      font-size: 11.5px;
+    .t-col-header.sr { color: var(--c-accent); }
+    .t-col-header.cn { color: var(--c-teal-mid); }
+    .lang-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+    .t-col p { font-size: 13px; line-height: 1.8; color: var(--c-text-muted); }
+    .t-col .article-title { font-size: 13.5px; font-weight: 500; color: var(--c-text); margin-bottom: 10px; }
+    .excerpt-label {
+      font-size: 11px;
       font-weight: 500;
+      letter-spacing: 0.05em;
       color: var(--c-accent);
-      letter-spacing: 0.04em;
-      margin-bottom: 6px;
+      margin: 14px 0 6px;
+      text-transform: uppercase;
     }
-    .divider {
-      height: 0.5px;
-      background: var(--c-border);
-      margin: 16px 0;
-    }
+    .divider { height: 0.5px; background: var(--c-border); margin: 14px 0; }
 
-    /* ── CONTACT ── */
-    .contact-row {
+    /* ── PROMO BANNER ── */
+    .promo-banner {
+      background: var(--c-surface);
+      border: 0.5px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      padding: 22px 26px;
       display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
     }
+    .promo-banner h3 { font-size: 14.5px; font-weight: 500; color: var(--c-text); margin-bottom: 3px; }
+    .promo-banner p  { font-size: 12.5px; color: var(--c-text-muted); }
+    .btn-accent {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      background: var(--c-accent-light);
+      border: 0.5px solid rgba(83,74,183,0.22);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--c-accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── TOOLS ── */
+    .tools-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .tool-card {
+      background: var(--c-surface);
+      border: 0.5px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+    }
+    .tool-card h3 { font-size: 12.5px; font-weight: 500; color: var(--c-text); margin-bottom: 6px; }
+    .tool-card p  { font-size: 12px; color: var(--c-text-muted); line-height: 1.55; }
+
+    /* ── CONTACT ── */
+    .contact-row { display: flex; gap: 12px; flex-wrap: wrap; }
     .contact-link {
       display: flex;
       align-items: center;
@@ -282,48 +292,48 @@
       text-decoration: none;
       color: var(--c-text);
       font-size: 13.5px;
-      transition: border-color 0.15s;
+      transition: border-color 0.15s, color 0.15s;
     }
     .contact-link:hover { border-color: var(--c-accent-mid); color: var(--c-accent); }
-    .contact-icon {
-      width: 15px;
-      height: 15px;
-      opacity: 0.5;
-      flex-shrink: 0;
-    }
+    .c-icon { width: 15px; height: 15px; opacity: 0.45; flex-shrink: 0; }
 
     /* ── FOOTER ── */
     footer {
       border-top: 0.5px solid var(--c-border);
-      padding: 24px 32px;
+      padding: 22px 36px;
       text-align: center;
       font-size: 12px;
       color: var(--c-text-faint);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 620px) {
       .header-inner { flex-direction: column; gap: 18px; }
       .translation-grid { grid-template-columns: 1fr; }
-      .translation-col:first-child { border-right: none; border-bottom: 0.5px solid var(--c-border); }
-      main { padding: 32px 20px 60px; }
-      .sample-card { padding: 20px; }
+      .t-col.left { border-right: none; border-bottom: 0.5px solid var(--c-border); }
+      main  { padding: 36px 20px 64px; }
+      .wrap { padding: 0 20px; }
+      .sample-card { padding: 20px 18px; }
+      .promo-banner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="avatar">OT</div>
-    <div class="header-text">
-      <h1>Olivera Tabajica</h1>
-      <p class="subtitle">Chinese · English · Serbian — Localization Specialist</p>
-      <div class="tag-row">
-        <span class="tag accent">Legal translation</span>
-        <span class="tag accent">Financial documentation</span>
-        <span class="tag">CN · EN · SR</span>
-        <span class="tag">Cross-border projects</span>
-        <span class="tag">Terminology management</span>
+  <div class="wrap">
+    <div class="header-inner">
+      <div class="avatar">OT</div>
+      <div class="header-text">
+        <h1>Olivera Tabajica</h1>
+        <p class="header-subtitle">Chinese · English · Serbian — Localization &amp; Technical Writing Specialist</p>
+        <div class="tag-row">
+          <span class="tag accent">Legal translation</span>
+          <span class="tag accent">Financial documentation</span>
+          <span class="tag teal">Technical writing</span>
+          <span class="tag">CN · EN · SR</span>
+          <span class="tag">Cross-border projects</span>
+          <span class="tag">Terminology management</span>
+        </div>
       </div>
     </div>
   </div>
@@ -335,74 +345,86 @@
   <section>
     <p class="section-label">About</p>
     <p class="about-text">
-      Localization specialist with a background in legal and financial translation, experienced in supporting cross-border projects between Chinese companies and European stakeholders. Skilled in handling complex documentation, ensuring terminological consistency, and adapting content for international business and regulatory environments.
-      <br><br>
-Experience includes large-scale multilingual documentation across legal, technical, and operational domains.
+      Localization and technical writing specialist with hands-on experience in legal, financial, and operational documentation across Chinese–Serbian–English language pairs. Background in supporting large-scale cross-border infrastructure and real estate projects, with a strong focus on terminological consistency, regulatory accuracy, and audience-appropriate communication.
     </p>
   </section>
 
-  <!-- COMPETENCIES -->
+  <!-- EXPERTISE -->
   <section>
     <p class="section-label">Areas of expertise</p>
-    <div class="competencies">
-      <div class="competency-card">
-        <div class="competency-icon">⚖️</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">⚖️</div>
         <h3>Legal translation</h3>
-        <p>Contracts, property law, regulatory documentation</p>
+        <p>Contracts, property registration, employment agreements, regulatory documentation</p>
       </div>
-      <div class="competency-card">
-        <div class="competency-icon">💱</div>
+      <div class="card">
+        <div class="card-icon">💱</div>
         <h3>Financial documentation</h3>
-        <p>Payment structures, invoicing, cross-border terms</p>
+        <p>Payment structures, deposit agreements, invoicing, cross-border compliance</p>
       </div>
-      <div class="competency-card">
-        <div class="competency-icon">🔗</div>
+      <div class="card">
+        <div class="card-icon">🌐</div>
         <h3>Localization</h3>
-        <p>Multilingual content, market adaptation</p>
+        <p>Multilingual content adaptation, UI strings, tone and market alignment</p>
       </div>
-      <div class="competency-card">
-        <div class="competency-icon">📖</div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Technical writing</h3>
+        <p>SOPs, user guides, workflow documentation, process infographics</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📖</div>
         <h3>Terminology management</h3>
-        <p>Glossaries, consistency across document sets</p>
+        <p>Multilingual glossaries, cross-document consistency, CN–SR–EN term mapping</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Cross-border coordination</h3>
+        <p>Facilitating communication between Chinese and European teams and institutions</p>
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
+  <!-- PROJECT EXPERIENCE -->
   <section>
-  <p class="section-label">Project experience</p>
-  <div class="competencies">
-
-    <div class="competency-card">
-      <h3>Large-scale contract localization</h3>
-      <p>
-        Translation and management of 400+ real estate agreements with multiple variations, ensuring consistency across documents and alignment with legal requirements.
-      </p>
+    <p class="section-label">Project experience</p>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">400+</div>
+        <div class="stat-label">Real estate contracts localized</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10,000+</div>
+        <div class="stat-label">Pages of technical documentation translated</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">CN–SR–EN</div>
+        <div class="stat-label">Primary language combination</div>
+      </div>
     </div>
-
-    <div class="competency-card">
-      <h3>Technical & operational documentation</h3>
-      <p>
-        Translation of 10,000+ pages of technical and operational content, including method statements, SOPs, production logs, construction reports, and operational manuals.
-      </p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Large-scale contract localization</h3>
+        <p>Translation and management of 400+ real estate agreements with multiple variations, ensuring consistency and legal alignment across the full document set.</p>
+      </div>
+      <div class="card">
+        <h3>Technical &amp; operational documentation</h3>
+        <p>Translation of 10,000+ pages of technical content — method statements, SOPs, production logs, construction reports, and operational manuals.</p>
+      </div>
+      <div class="card">
+        <h3>Legal &amp; employment documentation</h3>
+        <p>Translation of employment contracts, compliance-related materials, and cross-border business agreements in regulated environments.</p>
+      </div>
+      <div class="card">
+        <h3>On-site cross-border coordination</h3>
+        <p>Supporting direct communication between Chinese companies and Serbian institutions through documentation handling and on-site interpretation.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="competency-card">
-      <h3>Legal & employment documentation</h3>
-      <p>
-        Translation of contracts, employment agreements, and compliance-related documentation in cross-border business environments.
-      </p>
-    </div>
-
-    <div class="competency-card">
-      <h3>Cross-border coordination</h3>
-      <p>
-        Supporting communication between Chinese companies and Serbian institutions, including documentation handling and on-site coordination.
-      </p>
-    </div>
-
-  </div>
-</section>
+  <!-- TRANSLATION SAMPLES -->
+  <section>
     <p class="section-label">Translation samples</p>
 
     <!-- SAMPLE 1 -->
@@ -410,21 +432,19 @@ Experience includes large-scale multilingual documentation across legal, technic
       <div class="sample-header">
         <div>
           <h3>Property registration — legal translation</h3>
-          <p>Translation of legal provisions covering property registration, ownership rights, administrative procedures, and regulatory dependencies. Focused on terminological consistency and alignment with formal legal Chinese used in real estate and compliance contexts.</p>
+          <p>Translation of contract provisions covering property registration, ownership rights, administrative procedures, and regulatory dependencies. Focused on terminological consistency and formal legal Chinese standards for real estate and compliance contexts.</p>
         </div>
         <span class="lang-badge">SR → CN</span>
       </div>
-
-      <div class="responsibilities">
-        <span class="responsibility-pill">Contract clause translation</span>
-        <span class="responsibility-pill">Legal terminology consistency</span>
-        <span class="responsibility-pill">Formal legal Chinese standards</span>
-        <span class="responsibility-pill">Regulatory clarity</span>
+      <div class="pill-row">
+        <span class="pill">Contract clause translation</span>
+        <span class="pill">Legal terminology consistency</span>
+        <span class="pill">Formal legal Chinese</span>
+        <span class="pill">Regulatory clarity</span>
       </div>
-
       <div class="translation-grid">
-        <div class="translation-col">
-          <div class="col-header sr"><span class="col-lang-dot"></span>Original · Serbian</div>
+        <div class="t-col left">
+          <div class="t-col-header sr"><span class="lang-dot"></span>Original · Serbian</div>
           <p class="article-title">Član 12. Upis objekta</p>
           <p>Prodavac se obavezuje da pribavi upotrebnu dozvolu za objekat, i da izvrši upis objekta u katastar nepokretnosti, da izvrši pravnu podelu objekta na posebne delove i da ih upiše u katastar nepokretnosti. Kupac potvrđuje da je upoznat da ispunjenje navedenih obaveza Prodavca zavisi od kapaciteta i efikasnosti nadležnih organa i saglasan je da neće Prodavca smatrati odgovornim za bilo koje kašnjenje u završetku navedenih radnji.</p>
           <div class="divider"></div>
@@ -434,8 +454,8 @@ Experience includes large-scale multilingual documentation across legal, technic
           <div class="divider"></div>
           <p>Kupac snosi sve troškove upisa njegovog prava svojine nad Nepokretnošću u katastar nepokretnosti.</p>
         </div>
-        <div class="translation-col">
-          <div class="col-header cn"><span class="col-lang-dot"></span>Translation · Chinese</div>
+        <div class="t-col right">
+          <div class="t-col-header cn"><span class="lang-dot"></span>Translation · Chinese</div>
           <p class="article-title">第十二条 不动产登记</p>
           <p>卖方有义务取得建筑物的使用许可证，并将该建筑物登记于不动产登记机构，同时依法将建筑物划分为专有部分，并分别予以登记。买方确认，其已知悉卖方上述义务的履行取决于主管机关的效率及处理能力，并同意卖方对完成上述手续的任何延误不承担责任。</p>
           <div class="divider"></div>
@@ -453,130 +473,132 @@ Experience includes large-scale multilingual documentation across legal, technic
       <div class="sample-header">
         <div>
           <h3>Payment structure — financial and legal translation</h3>
-          <p>Translation of a full contract section covering deposit agreements, installment schedules, invoicing, and late payment terms. Focused on financial precision, legal clarity, and consistency across structured payment terms in cross-border contexts.</p>
+          <p>Translation of a full contract section covering deposit agreements, installment schedules, invoicing, and late payment terms. Focused on financial precision and structured payment logic in a cross-border business context.</p>
         </div>
         <span class="lang-badge">SR → CN</span>
       </div>
-
-      <div class="responsibilities">
-        <span class="responsibility-pill">Financial contract clauses</span>
-        <span class="responsibility-pill">Installment logic</span>
-        <span class="responsibility-pill">Payment terminology</span>
-        <span class="responsibility-pill">Cross-border compliance</span>
+      <div class="pill-row">
+        <span class="pill">Financial contract clauses</span>
+        <span class="pill">Installment logic</span>
+        <span class="pill">Payment terminology</span>
+        <span class="pill">Cross-border compliance</span>
       </div>
-
       <div class="translation-grid">
-        <div class="translation-col">
-          <div class="col-header sr"><span class="col-lang-dot"></span>Original · Serbian</div>
-          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);margin-bottom:10px;">Kupoprodajna cena se plaća isključivo u evrima i na bankarski račun Prodavca naveden u profakturi. Kupac snosi bilo koje i sve naknade i troškove na ime transfera novca na bankarski račun Prodavca, uključujući, a bez ograničenja, trošak bankarske provizije.</p>
+        <div class="t-col left">
+          <div class="t-col-header sr"><span class="lang-dot"></span>Original · Serbian</div>
+          <p>Kupoprodajna cena se plaća isključivo u evrima i na bankarski račun Prodavca naveden u profakturi. Kupac snosi bilo koje i sve naknade i troškove na ime transfera novca na bankarski račun Prodavca, uključujući, a bez ograničenja, trošak bankarske provizije.</p>
+          <p class="excerpt-label">Extended excerpt</p>
+          <p>Ugovorne strane saglasno konstatuju da je Kupac po Ugovoru o garantnom depozitu zaključenom sa Prodavcem dana […], isplatio Prodavcu ukupan iznos […] evra sa PDV-om, u dinarskoj protivvrednosti po srednjem kursu NBS-a na dan plaćanja. Navedeni iznos smatra se delom prve rate kupoprodajne cene.</p>
           <div class="divider"></div>
-          <p class="translation-label">Extended excerpt</p>
-          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">Ugovorne strane saglasno konstatuju da je Kupac po Ugovoru o garantnom depozitu zaključenom sa Prodavcem dana […], isplatio Prodavcu ukupan iznos […] evra sa PDV-om, u dinarskoj protivvrednosti po srednjem kursu NBS-a na dan plaćanja. Navedeni iznos smatra se delom prve rate kupoprodajne cene.</p>
+          <p>Preostali iznos kupoprodajne cene plaća se u ratama: prva rata (30%) nakon overe ugovora, najkasnije u roku od 15 dana od dostavljanja profakture; druga rata (70%) u roku od 15 dana od ulaska u posed i dostavljanja profakture.</p>
           <div class="divider"></div>
-          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">Preostali iznos kupoprodajne cene plaća se u ratama: prva rata (30%) nakon overe ugovora, najkasnije u roku od 15 dana od dostavljanja profakture; druga rata (70%) u roku od 15 dana od ulaska u posed i dostavljanja profakture.</p>
-          <div class="divider"></div>
-          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">Kupac je dužan da izvrši plaćanje u roku od 15 dana od dana prijema profakture, u suprotnom pada u docnju.</p>
+          <p>Kupac je dužan da izvrši plaćanje u roku od 15 dana od dana prijema profakture, u suprotnom pada u docnju.</p>
         </div>
-        <div class="translation-col">
-          <div class="col-header cn"><span class="col-lang-dot"></span>Translation · Chinese</div>
-          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);margin-bottom:10px;">买卖价款应仅以欧元支付至卖方在形式发票中指定的银行账户。买方应承担全部与转账相关的费用，包括但不限于银行手续费。</p>
+        <div class="t-col right">
+          <div class="t-col-header cn"><span class="lang-dot"></span>Translation · Chinese</div>
+          <p>买卖价款应仅以欧元支付至卖方在形式发票中指定的银行账户。买方应承担全部与转账相关的费用，包括但不限于银行手续费。</p>
+          <p class="excerpt-label">Extended excerpt</p>
+          <p>合同双方一致确认，买方已根据其与卖方于【】年【】月【】日签订的《定金协议》，向卖方支付定金共计【】欧元（含增值税），并按付款当日塞尔维亚国家银行中间汇率折算为第纳尔支付。上述定金应计入买卖价款首期付款的一部分。</p>
           <div class="divider"></div>
-          <p class="translation-label">Extended excerpt</p>
-          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">合同双方一致确认，买方已根据其与卖方于【】年【】月【】日签订的《定金协议》，向卖方支付定金共计【】欧元（含增值税），并按付款当日塞尔维亚国家银行中间汇率折算为第纳尔支付。上述定金应计入买卖价款首期付款的一部分。</p>
+          <p>剩余买卖价款按如下方式分期支付：第一期为总价款的30%，于合同公证后支付，且最迟不得超过卖方出具形式发票之日起15日内支付；第二期为总价款的70%，应于不动产交付并出具形式发票之日起15日内支付。</p>
           <div class="divider"></div>
-          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">剩余买卖价款按如下方式分期支付：第一期为总价款的30%，于合同公证后支付，且最迟不得超过卖方出具形式发票之日起15日内支付；第二期为总价款的70%，应于不动产交付并出具形式发票之日起15日内支付。</p>
-          <div class="divider"></div>
-          <p style="font-size:13.5px;line-height:1.75;color:var(--c-text-muted);">买方应于收到形式发票之日起15日内支付相应价款，逾期未付的，视为违约。</p>
+          <p>买方应于收到形式发票之日起15日内支付相应价款，逾期未付的，视为违约。</p>
         </div>
       </div>
     </div>
-<!-- SAMPLE 3 -->
+
+   <!-- SAMPLE 3 -->
 <div class="sample-card">
   <div class="sample-header">
     <div>
-      <h3>Game UI localization — user-facing content</h3>
+      <h3>SOVA — game localization (EN → CN)</h3>
       <p>
-        Localization of in-game interface elements and short user-facing messages, focusing on clarity, tone, and player experience across languages. 
-        Demonstrates adaptability from formal legal content to user-centered digital environments.
+        Localization of in-game UI and player-facing text for the game <strong>SOVA</strong>. 
+        Focused on clarity, tone, and natural phrasing to ensure an immersive player experience across languages.
+      </p>
+      <p style="font-size:12px;color:var(--c-text-faint);margin-top:4px;">
+        Game available on Steam: 
+        <a href="https://store.steampowered.com/app/3191070/Sova/" target="_blank" style="color:var(--c-accent);text-decoration:none;">
+          View project
+        </a>
       </p>
     </div>
     <span class="lang-badge">EN → CN</span>
   </div>
 
-  <div class="responsibilities">
-    <span class="responsibility-pill">UI localization</span>
-    <span class="responsibility-pill">Tone adaptation</span>
-    <span class="responsibility-pill">User experience</span>
-    <span class="responsibility-pill">Natural phrasing</span>
+  <div class="pill-row">
+    <span class="pill">Game localization</span>
+    <span class="pill">UI localization</span>
+    <span class="pill">Tone adaptation</span>
+    <span class="pill">User experience</span>
   </div>
 
   <div class="translation-grid">
-    <div class="translation-col">
-      <div class="col-header sr"><span class="col-lang-dot"></span>Original · English</div>
-      <p>Daily reward available</p>
+    <div class="t-col left">
+      <div class="t-col-header sr"><span class="lang-dot"></span>Original · English</div>
+      <p>Press any key to continue</p>
       <div class="divider"></div>
-      <p>Upgrade successful</p>
+      <p>Objective updated</p>
       <div class="divider"></div>
-      <p>You’ve completed the mission. Return to base.</p>
+      <p>You have unlocked a new ability</p>
     </div>
 
-    <div class="translation-col">
-      <div class="col-header cn"><span class="col-lang-dot"></span>Translation · Chinese</div>
-      <p>每日奖励已可领取</p>
+    <div class="t-col right">
+      <div class="t-col-header cn"><span class="lang-dot"></span>Translation · Chinese</div>
+      <p>按任意键继续</p>
       <div class="divider"></div>
-      <p>升级成功</p>
+      <p>任务已更新</p>
       <div class="divider"></div>
-      <p>任务已完成，请返回基地。</p>
+      <p>你已解锁新能力</p>
     </div>
   </div>
 </div>
   </section>
 
-  <!-- TECHNICAL WRITING LINK -->
+  <!-- TECHNICAL WRITING -->
   <section>
     <p class="section-label">Technical writing portfolio</p>
-    <div style="background:var(--c-surface);border:0.5px solid var(--c-border);border-radius:var(--radius-lg);padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <div class="promo-banner">
       <div>
-        <p style="font-size:15px;font-weight:500;color:var(--c-text);margin-bottom:4px;">SOPs, user guides, workflow documentation & glossaries</p>
-        <p style="font-size:13px;color:var(--c-text-muted);">Manufacturing, railway infrastructure, e-government, and multilingual terminology (CN–SR–EN)</p>
+        <h3>SOPs, user guides, workflow documentation &amp; multilingual glossaries</h3>
+        <p>Manufacturing, railway infrastructure, e-government · CN–SR–EN terminology management</p>
       </div>
-      <a href="https://github.com/Olivera-Tabajica/Technical-writing-portfolio/wiki" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:var(--c-accent-light);border:0.5px solid rgba(83,74,183,0.25);border-radius:var(--radius-md);text-decoration:none;font-size:13px;font-weight:500;color:var(--c-accent);white-space:nowrap;">
+      <a href="https://github.com/Olivera-Tabajica/Technical-writing-portfolio/wiki" target="_blank" class="btn-accent">
         View on GitHub
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 10.5L10.5 2.5M10.5 2.5H5M10.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
   </section>
-<section>
-  <p class="section-label">Tools & workflow</p>
-  <div class="competencies">
 
-    <div class="competency-card">
-      <h3>Tools</h3>
-      <p>Jira, Confluence, Trello, GitHub, MS Office, CAT tools (basic)</p>
+  <!-- TOOLS -->
+  <section>
+    <p class="section-label">Tools &amp; workflow</p>
+    <div class="tools-row">
+      <div class="tool-card">
+        <h3>Tools</h3>
+        <p>GitHub, Confluence, Jira, Trello, MS Office Suite, CAT tools (basic)</p>
+      </div>
+      <div class="tool-card">
+        <h3>Workflow practices</h3>
+        <p>Structured documentation, terminology management, cross-document consistency, version control</p>
+      </div>
+      <div class="tool-card">
+        <h3>Collaboration</h3>
+        <p>Cross-functional teams, Chinese–European stakeholder communication, on-site and remote coordination</p>
+      </div>
     </div>
+  </section>
 
-    <div class="competency-card">
-      <h3>Workflow</h3>
-      <p>Terminology management, structured documentation, cross-document consistency, version control</p>
-    </div>
-
-    <div class="competency-card">
-      <h3>Collaboration</h3>
-      <p>Working with cross-functional teams, supporting communication between Chinese and European stakeholders</p>
-    </div>
-
-  </div>
-</section>
   <!-- CONTACT -->
   <section>
     <p class="section-label">Contact</p>
     <div class="contact-row">
       <a href="mailto:oliveratabajica@gmail.com" class="contact-link">
-        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 8l9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg class="c-icon" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 8l9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         oliveratabajica@gmail.com
       </a>
       <a href="https://linkedin.com/in/olivera-tabajica" target="_blank" class="contact-link">
-        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11 17v-4a2 2 0 014 0v4M11 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg class="c-icon" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11 17v-4a2 2 0 014 0v4M11 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         linkedin.com/in/olivera-tabajica
       </a>
     </div>
@@ -585,7 +607,7 @@ Experience includes large-scale multilingual documentation across legal, technic
 </main>
 
 <footer>
-  Olivera Tabajica · Localization &amp; Technical Writing
+  Olivera Tabajica &nbsp;·&nbsp; Localization &amp; Technical Writing
 </footer>
 
 </body>
